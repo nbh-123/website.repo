@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noble Haker — Intelligent Systems Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2144;
+    --navy-mid: #1a3a6b;
+    --navy-light: #254d8f;
+    --cream: #fafaf7;
+    --white: #ffffff;
+    --accent: #c8922a;
+    --text: #1a1a2e;
+    --muted: #5a6a85;
+    --border: #dde3ee;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,250,247,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .nav-resume {
+    background: var(--navy) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-resume:hover { background: var(--navy-mid) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5vw 5rem;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -200px; top: 50%;
+    transform: translateY(-50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    pointer-events: none;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: 50%;
+    transform: translateY(-50%);
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 820px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--accent); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-navy:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--navy); transform: translateY(-1px); }
+
+  .hero-scroll {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .scroll-line { width: 40px; height: 1px; background: var(--border); }
+
+  /* SKILLS STRIP */
+  .skills-strip {
+    background: var(--navy);
+    padding: 1.25rem 5vw;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .skills-strip::-webkit-scrollbar { display: none; }
+
+  .strip-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .strip-div {
+    width: 1px; height: 1.2rem;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  .strip-tag {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    white-space: nowrap;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 6rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .label-num {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .label-title {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .label-rule { flex: 1; height: 1px; background: var(--border); }
+
+  /* ABOUT */
+  .about-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+
+  .about-body p strong { color: var(--text); font-weight: 500; }
+  .about-body p:last-child { margin-bottom: 0; }
+
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .info-card-header {
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .info-row {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-key {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .info-val { font-size: 0.9rem; color: var(--text); }
+  .info-val a { color: var(--navy-light); text-decoration: none; }
+  .info-val a:hover { text-decoration: underline; }
+
+  .status-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    margin-right: 0.4rem;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* PROJECTS */
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-card:hover { box-shadow: 0 12px 40px rgba(15,33,68,0.1); }
+
+  .feat-left {
+    padding: 3rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .feat-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+  }
+
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .proj-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .feat-right {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f7f9fc;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .spec-key {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .spec-val { font-size: 0.92rem; color: var(--navy); font-weight: 500; }
+
+  .view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+    width: fit-content;
+    transition: gap 0.2s;
+  }
+
+  .view-link:hover { gap: 0.75rem; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+  .proj-card:hover {
+    box-shadow: 0 8px 30px rgba(15,33,68,0.08);
+    transform: translateY(-3px);
+  }
+
+  .card-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    background: #eef2f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-arrow {
+    position: absolute;
+    top: 1.75rem; right: 1.75rem;
+    font-size: 1rem;
+    color: var(--border);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .proj-card:hover .card-arrow { color: var(--navy); transform: translate(2px,-2px); }
+
+  /* RESUME */
+  .resume-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .resume-left h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .resume-left h2 em { font-style: italic; color: var(--accent); }
+
+  .resume-left p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .resume-right {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 2.5rem;
+    color: var(--white);
+  }
+
+  .resume-section-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .resume-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .resume-items li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .resume-items li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+  .btn-white {
+    display: inline-block;
+    background: var(--white);
+    color: var(--navy);
+    padding: 0.8rem 1.75rem;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-white:hover { background: var(--cream); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    padding: 2rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+  }
+
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--white); }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    nav { padding: 0 1.5rem; }
+    .section { padding: 4rem 1.5rem; }
+    .about-layout, .resume-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .feat-right { display: none; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Noble Haker</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="/index.php/resume/" class="nav-resume">Resume ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Intelligent Systems Engineering · UNCW</div>
+    <h1>Engineering systems<br>that <em>think</em> and act.</h1>
+    <p class="hero-sub">
+      I'm Noble Haker — a <strong>systems engineer</strong> specializing in automation, robotics, and cyber-physical systems. I build at the intersection of hardware, software, and engineering fundamentals.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-navy">View My Projects</a>
+      <a href="/index.php/resume/" class="btn-outline">Download Resume</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS STRIP -->
+<div class="skills-strip">
+  <span class="strip-label">Tech Stack</span>
+  <div class="strip-div"></div>
+  <span class="strip-tag">Python</span>
+  <span class="strip-tag">C</span>
+  <span class="strip-tag">C++</span>
+  <span class="strip-tag">MATLAB</span>
+  <span class="strip-tag">Simulink</span>
+  <span class="strip-tag">ROS2</span>
+  <span class="strip-tag">Raspberry Pi</span>
+  <span class="strip-tag">Microcontrollers</span>
+  <span class="strip-tag">PID Control</span>
+  <span class="strip-tag">Embedded Systems</span>
+  <span class="strip-tag">Terramodel</span>
+  <span class="strip-tag">OOP</span>
+</div>
+
+<!-- ABOUT -->
+<div id="about" style="border-top: 1px solid var(--border);">
+  <div class="section reveal">
+    <div class="section-label">
+      <span class="label-num">01</span>
+      <h2 class="label-title">About Me</h2>
+      <div class="label-rule"></div>
+    </div>
+    <div class="about-layout">
+      <div class="about-body">
+        <p>I'm an <strong>Intelligent Systems Engineering</strong> student at the University of North Carolina Wilmington, concentrating in automation and cyber-physical systems. My work sits at the boundary where computation meets the physical world.</p>
+        <p>I design and build systems that integrate <strong>control theory</strong>, <strong>embedded hardware</strong>, and <strong>software architecture</strong> — from tuning PID loops in Simulink to deploying real-time robotics software in ROS2. I'm comfortable across the full stack of a mechatronic system: circuit-level hardware, firmware in C/C++, and high-level Python automation.</p>
+        <p>I'm actively seeking <strong>internships and engineering roles</strong> in robotics, automation, and embedded systems. I bring a rigorous technical foundation, a systems-level mindset, and a genuine drive to build things that work.</p>
+      </div>
+      <div>
+        <div class="info-card">
+          <div class="info-card-header">Contact & Details</div>
+          <div class="info-row">
+            <div class="info-key">Email</div>
+            <div class="info-val"><a href="mailto:nbh2314@uncw.edu">nbh2314@uncw.edu</a></div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">LinkedIn</div>
+            <div class="info-val"><a href="https://linkedin.com/in/noblehaker" target="_blank">linkedin.com/in/noblehaker</a></div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">University</div>
+            <div class="info-val">UNCW — Wilmington, NC</div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">Focus</div>
+            <div class="info-val">Automation & Cyber-Physical Systems</div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">Status</div>
+            <div class="info-val"><span class="status-dot"></span>Open to Opportunities</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" style="border-top: 1px solid var(--border); background: var(--cream);">
+  <div class="section reveal">
+    <div class="section-label">
+      <span class="label-num">02</span>
+      <h2 class="label-title">Projects</h2>
+      <div class="label-rule"></div>
+    </div>
+
+    <a href="/index.php/helping-hand-project/" class="featured-card">
+      <div class="feat-left">
+        <span class="feat-badge">Featured Project</span>
+        <h3 class="proj-title">The Helping Hand Project</h3>
+        <p class="proj-desc">An assistive robotics system designed to augment human capability through intelligent mechanical actuation and sensor feedback. An exploration of bio-mechatronics and accessible engineering — built from the ground up.</p>
+        <div class="tags">
+          <span class="tag">Robotics</span>
+          <span class="tag">Embedded C++</span>
+          <span class="tag">Servo Control</span>
+          <span class="tag">Sensor Fusion</span>
+          <span class="tag">Raspberry Pi</span>
+        </div>
+      </div>
+      <div class="feat-right">
+        <div class="spec-grid">
+          <div><div class="spec-key">Controller</div><div class="spec-val">Raspberry Pi</div></div>
+          <div><div class="spec-key">Language</div><div class="spec-val">C++ / Python</div></div>
+          <div><div class="spec-key">Actuation</div><div class="spec-val">Servo Motors</div></div>
+          <div><div class="spec-key">Input</div><div class="spec-val">Sensor Array</div></div>
+        </div>
+        <span class="view-link">View Project →</span>
+      </div>
+    </a>
+
+    <div class="cards-grid">
+      <a href="#" class="proj-card">
+        <div class="card-num">Project 002</div>
+        <div class="card-icon">⚙️</div>
+        <span class="card-arrow">↗</span>
+        <h4 class="card-title">PID Control System</h4>
+        <p class="card-desc">Design and tuning of PID feedback controllers for stabilization of dynamic mechanical systems, modeled and validated in MATLAB/Simulink.</p>
+        <div class="tags">
+          <span class="tag">MATLAB</span>
+          <span class="tag">Simulink</span>
+          <span class="tag">Control Theory</span>
+        </div>
+      </a>
+
+      <a href="#" class="proj-card">
+        <div class="card-num">Project 003</div>
+        <div class="card-icon">🤖</div>
+        <span class="card-arrow">↗</span>
+        <h4 class="card-title">ROS2 Robotics Node</h4>
+        <p class="card-desc">Modular ROS2 node architecture enabling composable robot behavior through standardized sensor processing and actuator interfaces.</p>
+        <div class="tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">C++</span>
+          <span class="tag">Python</span>
+        </div>
+      </a>
+
+      <a href="#" class="proj-card">
+        <div class="card-num">Project 004</div>
+        <div class="card-icon">📡</div>
+        <span class="card-arrow">↗</span>
+        <h4 class="card-title">Embedded Sensor Platform</h4>
+        <p class="card-desc">Microcontroller-based data acquisition with real-time telemetry for environmental monitoring in cyber-physical applications.</p>
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">Microcontrollers</span>
+          <span class="tag">I2C / SPI</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- RESUME -->
+<div id="resume" style="border-top: 1px solid var(--border); background: var(--white);">
+  <div class="section reveal">
+    <div class="section-label">
+      <span class="label-num">03</span>
+      <h2 class="label-title">Resume</h2>
+      <div class="label-rule"></div>
+    </div>
+    <div class="resume-layout">
+      <div class="resume-left">
+        <h2>Ready to put my skills<br>to work <em>for you.</em></h2>
+        <p>My full resume covers my education, coursework, technical skills, and hands-on project experience. I'm actively seeking internships and engineering roles in robotics and automation.</p>
+        <a href="/index.php/resume/" class="btn-navy">View Full Resume →</a>
+      </div>
+      <div class="resume-right">
+        <div class="resume-section-title">What you'll find</div>
+        <ul class="resume-items">
+          <li>Intelligent Systems Engineering — UNCW</li>
+          <li>Control Systems &amp; Feedback Theory</li>
+          <li>Robotics: ROS2, Embedded C++</li>
+          <li>MATLAB / Simulink Modeling</li>
+          <li>Raspberry Pi &amp; Microcontroller Projects</li>
+          <li>Python, C, C++ Development</li>
+        </ul>
+        <a href="/index.php/resume/" class="btn-white">Download Resume</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Noble Haker</span>
+  <span><a href="mailto:nbh2314@uncw.edu">nbh2314@uncw.edu</a> · <a href="https://linkedin.com/in/noblehaker" target="_blank">LinkedIn ↗</a></span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
