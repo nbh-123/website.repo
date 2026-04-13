@@ -635,9 +635,9 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Intelligent Systems Engineering · UNCW</div>
-    <h1>Engineering systems<br>that <em>think</em> and act.</h1>
+    <h1>I build things.<br>I explain them <em>well.</em></h1>
     <p class="hero-sub">
-      I'm Noble Haker — a <strong>Wilmington-born engineer</strong> building at the intersection of robotics, automation, and cyber-physical systems. Started college at 16. Currently designing prosthetics, chasing waves, and looking for my next challenge.
+      I'm Noble Haker — an engineer who communicates clearly and wants to be in the room where technical product meets real customer. Started college at 16. Currently leading a prosthetics design team, heading to Prague to pitch an AI startup, and <strong>looking for roles where both halves of that sentence matter.</strong>
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn-navy">View My Projects</a>
@@ -676,19 +676,26 @@
       <h2 class="label-title">About Me</h2>
       <div class="label-rule"></div>
     </div>
-    <div class="about-layout">
+
+    <!-- Toggle buttons -->
+    <div style="display:flex; gap:0.5rem; margin-bottom:2.5rem;">
+      <button onclick="showTab('creds')" id="btn-creds" style="padding:0.55rem 1.25rem; border-radius:4px; font-size:0.85rem; font-weight:500; cursor:pointer; border:1.5px solid #0f2144; background:#0f2144; color:#fff; font-family:'DM Sans',sans-serif; transition:all 0.2s;">Credentials</button>
+      <button onclick="showTab('edge')" id="btn-edge" style="padding:0.55rem 1.25rem; border-radius:4px; font-size:0.85rem; font-weight:500; cursor:pointer; border:1.5px solid #dde3ee; background:transparent; color:#5a6a85; font-family:'DM Sans',sans-serif; transition:all 0.2s;">What Sets Me Apart</button>
+    </div>
+
+    <!-- What Sets Me Apart -->
+    <div id="tab-edge" class="about-layout" style="display:none;">
       <div class="about-body">
-        <p>I'm a Wilmington, NC native pursuing a <strong>B.S. in Intelligent Systems Engineering</strong> at UNC Wilmington, concentrating in cyber-physical systems. I started taking college courses full-time at 16 through Isaac Bear Early College High School, completed over 50 credit hours early, and haven't looked back. I graduate in Spring 2027.</p>
-        <p>My most meaningful work has been with the <strong>Helping Hand Project</strong>, where I help design and build prosthetic devices for real clients. Last semester I helped fabricate components for a prosthetic hand for a young girl — and got to be there when she tried it on for the first time. That experience is the clearest example I have of why engineering matters.</p>
-        <p>Outside the lab I teach surfing to children with disabilities as a charity instructor, compete with the UNCW Surfing Club, and stay involved with the ASBPA. This summer I'll be <strong>studying abroad in Prague</strong>, participating in an entrepreneurship program to pitch an AI startup.</p>
-        <p>I'm actively looking for <strong>internships in robotics and intelligent systems</strong>. I bring curiosity, a systems-level mindset, and a track record of showing up for hard problems — in and out of the classroom.</p>
+        <p>I'm a 20-year-old engineer from Wilmington, NC. The technical foundation is there — but what actually sets me apart is how I work with people. I communicate clearly, I pick things up fast, and I think about who's on the other side of what I'm building.</p>
+        <p>I spent two summers teaching surfing — working with kids across all backgrounds, including children with blindness, autism, and serious illness. You learn fast how to read what someone needs and adapt without a script. That instinct carries into how I approach engineering: I don't just build things, I think about why they matter to the person using them.</p>
+        <p>This summer I'm heading to <strong>Prague</strong> to pitch an AI startup in an international entrepreneurship program. I'm building toward roles where the job is as much about people as it is about product — and I'm looking for the right opportunity to build on this foundation.</p>
       </div>
       <div>
         <div class="info-card">
-          <div class="info-card-header">Contact & Details</div>
+          <div class="info-card-header">Contact</div>
           <div class="info-row">
             <div class="info-key">Email</div>
-            <div class="info-val"><a href="/cdn-cgi/l/email-protection#1f717d772d2c2e2b5f6a717c68317a7b6a"><span class="__cf_email__" data-cfemail="503e32386263616410253e33277e353425">[email&#160;protected]</span></a></div>
+            <div class="info-val"><a href="/cdn-cgi/l/email-protection#7c121e144e4f4d483c09121f0b52191809"><span class="__cf_email__" data-cfemail="402e22287273717400352e23376e252435">[email&#160;protected]</span></a></div>
           </div>
           <div class="info-row">
             <div class="info-key">LinkedIn</div>
@@ -698,19 +705,63 @@
             <div class="info-key">University</div>
             <div class="info-val">UNCW — Wilmington, NC</div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credentials -->
+    <div id="tab-creds" class="about-layout">
+      <div class="about-body">
+        <p>I'm pursuing a <strong>B.S. in Intelligent Systems Engineering</strong> at UNC Wilmington, concentrating in cyber-physical systems, with a 3.43 GPA and Dean's List recognition. I graduate Spring 2027.</p>
+        <p>I started college at 16 through Isaac Bear Early College High School, completing over <strong>50 credit hours</strong> before most people finished high school. That early start gave me a serious head start in systems thinking, embedded development, and control theory.</p>
+        <p>My most significant project is the <strong>Helping Hand Project</strong> — designing and building prosthetic devices for real clients. Last semester I helped fabricate a prosthetic hand for a young girl and was there when she tried it on. Engineering at its most direct.</p>
+        <p>Technical stack: <strong>Python, C, C++, MATLAB, Simulink, ROS2, Raspberry Pi, Microcontrollers, PID Control, Embedded Systems.</strong> I'm comfortable from firmware to high-level automation pipelines.</p>
+      </div>
+      <div>
+        <div class="info-card">
+          <div class="info-card-header">Academic Record</div>
           <div class="info-row">
-            <div class="info-key">Focus</div>
-            <div class="info-val">Automation & Cyber-Physical Systems</div>
+            <div class="info-key">GPA</div>
+            <div class="info-val">3.43 · Dean's List</div>
           </div>
           <div class="info-row">
-            <div class="info-key">Status</div>
-            <div class="info-val"><span class="status-dot"></span>Open to Opportunities</div>
+            <div class="info-key">Degree</div>
+            <div class="info-val">B.S. Intelligent Systems Engineering</div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">Graduation</div>
+            <div class="info-val">Spring 2027</div>
+          </div>
+          <div class="info-row">
+            <div class="info-key">Awards</div>
+            <div class="info-val">Gold Academic Award · Distinguished Merit Scholarship · SOLAR Award Finalist</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function showTab(tab) {
+  const edgeEl = document.getElementById('tab-edge');
+  const credsEl = document.getElementById('tab-creds');
+  const btnEdge = document.getElementById('btn-edge');
+  const btnCreds = document.getElementById('btn-creds');
+  const navy = '#0f2144', muted = '#5a6a85', border = '#dde3ee';
+  if (tab === 'edge') {
+    edgeEl.style.display = 'grid';
+    credsEl.style.display = 'none';
+    btnEdge.style.background = navy; btnEdge.style.borderColor = navy; btnEdge.style.color = '#fff';
+    btnCreds.style.background = 'transparent'; btnCreds.style.borderColor = border; btnCreds.style.color = muted;
+  } else {
+    edgeEl.style.display = 'none';
+    credsEl.style.display = 'grid';
+    btnCreds.style.background = navy; btnCreds.style.borderColor = navy; btnCreds.style.color = '#fff';
+    btnEdge.style.background = 'transparent'; btnEdge.style.borderColor = border; btnEdge.style.color = muted;
+  }
+}
+</script>
 
 <!-- PROJECTS -->
 <div id="projects" style="border-top: 1px solid var(--border); background: var(--cream);">
@@ -725,21 +776,22 @@
       <div class="feat-left">
         <span class="feat-badge">Featured Project</span>
         <h3 class="proj-title">The Helping Hand Project</h3>
-        <p class="proj-desc">An assistive robotics system designed to augment human capability through intelligent mechanical actuation and sensor feedback. An exploration of bio-mechatronics and accessible engineering — built from the ground up.</p>
+        <p class="proj-desc">Lead Prosthetic Designer for UNCW's chapter of a North Carolina nonprofit building custom prosthetics for children with limb differences — free of charge. Leading a team of ~20 student volunteers through iterative design, client fittings, and fabrication.</p>
         <div class="tags">
-          <span class="tag">Robotics</span>
-          <span class="tag">Embedded C++</span>
-          <span class="tag">Servo Control</span>
-          <span class="tag">Sensor Fusion</span>
-          <span class="tag">Raspberry Pi</span>
+          <span class="tag">TinkerCAD</span>
+          <span class="tag">PrusaSlicer</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Iterative Design</span>
+          <span class="tag">Client Collaboration</span>
+          <span class="tag">Team Leadership</span>
         </div>
       </div>
       <div class="feat-right">
         <div class="spec-grid">
-          <div><div class="spec-key">Controller</div><div class="spec-val">Raspberry Pi</div></div>
-          <div><div class="spec-key">Language</div><div class="spec-val">C++ / Python</div></div>
-          <div><div class="spec-key">Actuation</div><div class="spec-val">Servo Motors</div></div>
-          <div><div class="spec-key">Input</div><div class="spec-val">Sensor Array</div></div>
+          <div><div class="spec-key">Role</div><div class="spec-val">Lead Prosthetic Designer</div></div>
+          <div><div class="spec-key">Since</div><div class="spec-val">Spring 2026</div></div>
+          <div><div class="spec-key">Team Size</div><div class="spec-val">~20 volunteers</div></div>
+          <div><div class="spec-key">Status</div><div class="spec-val">Semi-functional prototype</div></div>
         </div>
         <span class="view-link">View Project →</span>
       </div>
@@ -747,41 +799,38 @@
 
     <div class="cards-grid">
       <a href="#" class="proj-card">
-        <div class="card-num">Project 002</div>
-        <div class="card-icon">⚙️</div>
         <span class="card-arrow">↗</span>
-        <h4 class="card-title">PID Control System</h4>
-        <p class="card-desc">Design and tuning of PID feedback controllers for stabilization of dynamic mechanical systems, modeled and validated in MATLAB/Simulink.</p>
+        <h4 class="card-title">Closed-Loop PID Control</h4>
+        <p class="card-desc">Designed and implemented a state-feedback PID controller on a physical Quanser rotary inverted pendulum. Selected poles and eigenvalues, computed control gains, and validated performance in MATLAB/Simulink — achieving stabilization within ±3° against a ±10° requirement.</p>
         <div class="tags">
           <span class="tag">MATLAB</span>
           <span class="tag">Simulink</span>
           <span class="tag">Control Theory</span>
+          <span class="tag">State Feedback</span>
         </div>
       </a>
 
       <a href="#" class="proj-card">
-        <div class="card-num">Project 003</div>
-        <div class="card-icon">🤖</div>
         <span class="card-arrow">↗</span>
-        <h4 class="card-title">ROS2 Robotics Node</h4>
-        <p class="card-desc">Modular ROS2 node architecture enabling composable robot behavior through standardized sensor processing and actuator interfaces.</p>
+        <h4 class="card-title">6DOF Robotic Manipulator</h4>
+        <p class="card-desc">Programmed pick-and-place point sequences for a physical xArm 6 robotic manipulator in C++ within a ROS2 environment on Linux. Validated execution on Gazebo simulation before deploying to physical hardware using ROS2 topic architecture.</p>
         <div class="tags">
           <span class="tag">ROS2</span>
           <span class="tag">C++</span>
-          <span class="tag">Python</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Gazebo</span>
         </div>
       </a>
 
       <a href="#" class="proj-card">
-        <div class="card-num">Project 004</div>
-        <div class="card-icon">📡</div>
         <span class="card-arrow">↗</span>
-        <h4 class="card-title">Embedded Sensor Platform</h4>
-        <p class="card-desc">Microcontroller-based data acquisition with real-time telemetry for environmental monitoring in cyber-physical applications.</p>
+        <h4 class="card-title">Dual-Rotor Aerospace Control</h4>
+        <p class="card-desc">Tuned PID controller gains on a physical Quanser Aero 2 dual-rotor platform with IMU, pitch/yaw encoders, and DC motors. Achieved peak time of 3.508s and overshoot of 4.9% — both within spec — producing a stable, well-damped response.</p>
         <div class="tags">
-          <span class="tag">C</span>
-          <span class="tag">Microcontrollers</span>
-          <span class="tag">I2C / SPI</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">PID Tuning</span>
+          <span class="tag">IMU</span>
+          <span class="tag">Embedded Control</span>
         </div>
       </a>
     </div>
@@ -799,7 +848,7 @@
     <div class="resume-layout">
       <div class="resume-left">
         <h2>Ready to put my skills<br>to work <em>for you.</em></h2>
-        <p>My full resume covers my education, coursework, technical skills, and hands-on project experience. I'm actively seeking internships and engineering roles in robotics and automation.</p>
+        <p>My full resume covers my education, technical projects, and hands-on experience. I'm looking for the right opportunity to build on this foundation in sales engineering or applications engineering.</p>
         <a href="/index.php/resume/" class="btn-navy">View Full Resume →</a>
       </div>
       <div class="resume-right">
@@ -819,8 +868,5 @@
 </div>
 
 <footer>
-  <span>© 2025 Noble Haker</span>
-  <span><a href="/cdn-cgi/l/email-protection#9bf5f9f3a9a8aaafdbeef5f8ecb5feffee"><span class="__cf_email__" data-cfemail="b1dfd3d983828085f1c4dfd2c69fd4d5c4">[email&#160;protected]</span></a> · <a href="https://linkedin.com/in/noblehaker" target="_blank">LinkedIn ↗</a></span>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare
+  <span>© 2026 Noble Haker</span>
+  <span><a href="/cdn-cgi/l/email-protection#9bf5f9f3a9a8aaafdbeef5f8ecb5feffee"><span class="__cf_email__" data-cfemail="b1
